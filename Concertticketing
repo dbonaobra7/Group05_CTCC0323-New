@@ -1,0 +1,122 @@
+package concertticketsystem;
+  
+import javax.swing.JOptionPane;
+
+public class ConcertTicketSystem extends javax.swing.JFrame {
+
+    public ConcertTicketSystem() {
+        initComponents();
+    }
+
+    private void initComponents() {
+        // Existing code for initializing components
+
+        // Set action listeners for buttons
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                purchaseButtonActionPerformed(evt);
+            }
+        });
+    }
+
+    private void purchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // Get user input
+        String fullName = jTextField3.getText();
+        String mobileNumber = jTextField1.getText();
+        String selectedTicketType = getSelectedTicketType();
+        String selectedSeatRow = getSelectedSeatRow();
+
+        // Validate input
+        if (fullName.isEmpty() || mobileNumber.isEmpty() || selectedTicketType == null || selectedSeatRow == null) {
+            JOptionPane.showMessageDialog(this, "Please fill in all the required fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Process the ticket purchase
+        // TODO: Implement the logic for processing the ticket purchase
+
+        // Display confirmation message
+        String message = "Ticket purchased successfully!\n\n"
+                + "Full Name: " + fullName + "\n"
+                + "Mobile Number: " + mobileNumber + "\n"
+                + "Ticket Type: " + selectedTicketType + "\n"
+                + "Seat Row: " + selectedSeatRow;
+        JOptionPane.showMessageDialog(this, message, "Confirmation", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private String getSelectedTicketType() {
+        if (checkbox1.getState()) {
+            return "3rd floor";
+        } else if (checkbox2.getState()) {
+            return "2nd floor";
+        } else if (checkbox3.getState()) {
+            return "4th floor";
+        } else if (checkbox4.getState()) {
+            return "VIP Standing";
+        } else {
+            return null;
+        }
+    }
+
+    private String getSelectedSeatRow() {
+        if (jRadioButton1.isSelected()) {
+            return "A";
+        } else if (jRadioButton2.isSelected()) {
+            return "B";
+        } else if (jRadioButton3.isSelected()) {
+            return "C";
+        } else if (jRadioButton4.isSelected()) {
+            return "D";
+        } else if (jRadioButton5.isSelected()) {
+            return "E";
+        } else {
+            return null;
+        }
+    }
+
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ConcertTicketDesign().setVisible(true);
+            }
+        });
+    }
+
+   
+// Variables declaration - do not modify                     
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.ButtonGroup buttonGroup7;
+    private java.awt.Checkbox checkbox1;
+    private java.awt.Checkbox checkbox2;
+    private java.awt.Checkbox checkbox3;
+    private java.awt.Checkbox checkbox4;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField3;
+    private java.awt.Label label1;
+    // End of variables declaration     
+}
